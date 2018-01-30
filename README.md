@@ -2,6 +2,9 @@
 一个友好的类jq的json print，带有简洁的json路径过滤功能，支持dict keys()、values()、items()方法，以及全功能字符串、列表切片。
 支持 Python2、Python3
 
+[![Build status](https://travis-ci.org/rq/rq.svg?branch=master)](https://secure.travis-ci.org/rq/rq)
+[![PyPI](https://img.shields.io/pypi/pyversions/rq.svg)](https://pypi.python.org/pypi/rq)
+
 ## API
 ppt(obj, filter='.', with_print=True, normal_path_print=False)
 
