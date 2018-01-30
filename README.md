@@ -42,3 +42,82 @@ ppt(obj, filter='.', with_print=True, normal_path_print=False)
 * string切片..与list相同
 
 * string 切片 step..与list相同
+
+## 示例
+``` python
+from ppt import ppt
+test = '{"a": [1, 3, 4, 9, 10, 0, 5, 3, 7], "c": [{"h": 1, "d": [{"e": ["f", "g"]}]}], "b": "1234567890", "d": null}'
+ppt(test)
+```
+
+输出格式化的json，且key按字母顺序排序：
+```
+{
+    "a": [
+        1,
+        3,
+        4,
+        9,
+        10,
+        0,
+        5,
+        3,
+        7
+    ],
+    "b": "1234567890",
+    "c": [
+        {
+            "d": [
+                {
+                    "e": [
+                        "f",
+                        "g"
+                    ]
+                }
+            ],
+            "h": 1
+        }
+    ],
+    "d": null
+}
+```
+
+过滤：
+```
+ppt(test, '.a.::2', normal_path_print=True)
+```
+```
+[
+    1,
+    4,
+    10,
+    5,
+    7
+]
+get it normally with: <obj>["a"][::2]
+```
+
+函数过滤：
+```
+ppt(test, '.c.0.keys()', normal_path_print=True)
+```
+```
+[
+    "h",
+    "d"
+]
+get it normally with: <obj>["c"][0].keys()
+```
+
+切片：
+```
+ppt(test, 'a.1:-2:2', normal_path_print=True)
+```
+```
+[
+    3,
+    9,
+    0
+]
+get it normally with: <obj>["a"][1:-2:2]
+```
